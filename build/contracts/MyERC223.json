@@ -1,0 +1,305 @@
+{
+  "contractName": "MyERC223",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "_totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "who",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"_totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the balance of the `who` address.\"},\"transfer(address,uint256)\":{\"details\":\"Transfers `value` tokens from `msg.sender` to `to` address and returns `true` on success.\"},\"transfer(address,uint256,bytes)\":{\"details\":\"Transfers `value` tokens from `msg.sender` to `to` address with `data` parameter and returns `true` on success.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223.sol\":\"MyERC223\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223.sol\":{\"keccak256\":\"0x7569fee2219e215f535622418b9e550acc971b3f5e77e54d8443386390a84703\",\"urls\":[\"bzz-raw://247d4b489a2744a63ff3bd063fd8835b04b18246f49d81c75469b3f7c24ade9c\",\"dweb:/ipfs/QmYNgnmVz7pz46CfpJ5vM5JH7sxTB8hv6Qi8HVDpQvBTjv\"]},\"/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223/ERC223.sol\":{\"keccak256\":\"0x63da4b561ab04f75044f41ec97bd72f6a294faa861519b106d409a3838c5e494\",\"urls\":[\"bzz-raw://b962c11132dccebd1ac420b4c206055e5151719ee6b6ac0acb30d61fc37f9dbf\",\"dweb:/ipfs/QmX2CFYtnuQQ7dM338QM4M2Ya2by8icHCc6L64pGMA7cic\"]},\"/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223/IERC223.sol\":{\"keccak256\":\"0xc7e67607bdf6bf4671d6630c66dbf70e9abec810b1331523bc887f486afe5068\",\"urls\":[\"bzz-raw://a6fff950c3110a6e531a1464d083fb93e5b3656616a52e41d81c4d2fe1ee3f67\",\"dweb:/ipfs/QmP9ozFr7iS9USWkTNWDZ2ko3VV4sEgvtcHgdF9ArNZ8jW\"]},\"/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223/IERC223Recipient.sol\":{\"keccak256\":\"0xbaf2f848be815f4df03d7d8ab7bb2f86deb8dbe5088b910849186ce6c4b3daa5\",\"urls\":[\"bzz-raw://2b29c70f30269df4e9664b49e758c01c507b1ee6e27268f0a9eece2fbbe13430\",\"dweb:/ipfs/QmdvTpCnuoQhKVd7rhPrxFtDySBmGvz2mp15RK5D1BK224\"]},\"/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/math/SafeMath.sol\":{\"keccak256\":\"0x4ccf2d7b51873db1ccfd54ca2adae5eac3b184f9699911ed4490438419f1c690\",\"urls\":[\"bzz-raw://d62d769b2219d5de39013093412623e624fa887f871826ea3bae6052ee893610\",\"dweb:/ipfs/QmV3yVktya1s617QmuzQR2CfuJgUi3dR2xEZY9ecmqZ2G1\"]},\"/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/utils/Address.sol\":{\"keccak256\":\"0x59cd058304d67cf05a94543c28a8ae814a0110ba6126f0a1d66c91f0f4d3e853\",\"urls\":[\"bzz-raw://b726217eb09fd05b5c93d1e264e9f1f64f23a7eb076b643e7305152a2ad1885c\",\"dweb:/ipfs/QmNYNP23oXWDzTmJ8awM2cWrgVXRjHM69GeRJAVwB968fL\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.0;\r\n\r\nimport \"./ERC223/ERC223.sol\";\r\n\r\ncontract MyERC223 is IERC223 {\r\n  \r\n}",
+  "sourcePath": "C:/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223.sol",
+  "ast": {
+    "absolutePath": "/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223.sol",
+    "exportedSymbols": {
+      "MyERC223": [
+        11
+      ]
+    },
+    "id": 12,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "absolutePath": "/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223/ERC223.sol",
+        "file": "./ERC223/ERC223.sol",
+        "id": 8,
+        "nodeType": "ImportDirective",
+        "scope": 12,
+        "sourceUnit": 184,
+        "src": "27:29:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 9,
+              "name": "IERC223",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 392,
+              "src": "81:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC223_$392",
+                "typeString": "contract IERC223"
+              }
+            },
+            "id": 10,
+            "nodeType": "InheritanceSpecifier",
+            "src": "81:7:1"
+          }
+        ],
+        "contractDependencies": [
+          392
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 11,
+        "linearizedBaseContracts": [
+          11,
+          392
+        ],
+        "name": "MyERC223",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 12,
+        "src": "60:37:1"
+      }
+    ],
+    "src": "0:97:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223.sol",
+    "exportedSymbols": {
+      "MyERC223": [
+        11
+      ]
+    },
+    "id": 12,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "absolutePath": "/C/Users/Ewan Debove/Documents/A5/Blockchain Programming/erc 223/contracts/ERC223/ERC223.sol",
+        "file": "./ERC223/ERC223.sol",
+        "id": 8,
+        "nodeType": "ImportDirective",
+        "scope": 12,
+        "sourceUnit": 184,
+        "src": "27:29:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 9,
+              "name": "IERC223",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 392,
+              "src": "81:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC223_$392",
+                "typeString": "contract IERC223"
+              }
+            },
+            "id": 10,
+            "nodeType": "InheritanceSpecifier",
+            "src": "81:7:1"
+          }
+        ],
+        "contractDependencies": [
+          392
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 11,
+        "linearizedBaseContracts": [
+          11,
+          392
+        ],
+        "name": "MyERC223",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 12,
+        "src": "60:37:1"
+      }
+    ],
+    "src": "0:97:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-11-20T11:14:42.006Z",
+  "devdoc": {
+    "methods": {
+      "balanceOf(address)": {
+        "details": "Returns the balance of the `who` address."
+      },
+      "transfer(address,uint256)": {
+        "details": "Transfers `value` tokens from `msg.sender` to `to` address and returns `true` on success."
+      },
+      "transfer(address,uint256,bytes)": {
+        "details": "Transfers `value` tokens from `msg.sender` to `to` address with `data` parameter and returns `true` on success."
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
