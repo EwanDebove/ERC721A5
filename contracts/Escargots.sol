@@ -7,7 +7,7 @@ import "../utils/Address.sol";
 import "../node_modules/@openzeppelin/contracts/introspection/ERC165.sol";
 
 
-contract MyERC721 is ERC165, IERC721 {
+contract Escargots is ERC165, IERC721 {
 
   using SafeMath for uint256;
   using Address for address;
@@ -42,6 +42,8 @@ contract MyERC721 is ERC165, IERC721 {
    *   bytes4(keccak256('safeTransferFrom(address,address,uint256,bytes)'))
    */
   
+  uint256[] ids;
+
   constructor()
     public
   {
@@ -323,6 +325,16 @@ contract MyERC721 is ERC165, IERC721 {
     if (_tokenApprovals[tokenId] != address(0)) {
       _tokenApprovals[tokenId] = address(0);
     }
+  }
+
+
+  function mint(address owner, uint256 tokenId1, uint256 tokenId2) public {
+  	require(ownerOf(tokenId1) == owner);
+  	require(ownerOf(tokenId2) == owner);
+
+  	uint256 tokenId = ids.length;
+
+  	_mint(owner, tokenId);
   }
 
 
