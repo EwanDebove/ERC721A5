@@ -327,16 +327,16 @@ contract Escargots is ERC165, IERC721 {
     }
   }
 
-
+  //function to create a new token from two existing tokens  
   function mint(address owner, uint256 tokenId1, uint256 tokenId2) public {
-  	require(ownerOf(tokenId1) == owner);
-  	require(ownerOf(tokenId2) == owner);
+  	require(ownerOf(tokenId1) == owner);//you can only use tokens you own
+  	require(ownerOf(tokenId2) == owner);//TO DO owner = msg.sender
 
-  	uint256 tokenId = ids.length;
+  	uint256 tokenId = ids.length;//create new id for new token
 
-  	_mint(owner, tokenId);
+  	_mint(owner, tokenId);//create a new token
 
-    _burn(owner, tokenId1);
+    _burn(owner, tokenId1);//burn the two tokens
     _burn(owner, tokenId2);
   }
 
