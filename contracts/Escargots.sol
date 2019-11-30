@@ -335,6 +335,9 @@ contract Escargots is ERC165, IERC721 {
   	uint256 tokenId = ids.length;
 
   	_mint(owner, tokenId);
+
+    _burn(owner, tokenId1);
+    _burn(owner, tokenId2);
   }
 
 
