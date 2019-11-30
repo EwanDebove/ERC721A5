@@ -16,7 +16,7 @@ contract TheSlimeRoad is ERC165, IERC721 {
 
   struct Sale {
     uint256 tokenId;
-    address seller;
+    address payable seller;
     uint256 price;
   }
 
@@ -25,7 +25,7 @@ contract TheSlimeRoad is ERC165, IERC721 {
   function deposit(uint256 _tokenId, uint256 _price) public {
     require(ownerOf(_tokenId) == msg.sender);
 
-    transferFrom(msg.sender, address(this) , _tokenId);
+    safeTransferFrom(msg.sender, address(this) , _tokenId);
 
     Sale memory s = Sale({
             tokenId: _tokenId,
@@ -43,10 +43,19 @@ contract TheSlimeRoad is ERC165, IERC721 {
     delete salesId[escargotsToSell[_tokenId]];
     delete escargotsToSell[_tokenId];
 
-    token.safeTransferFrom(address(this), msg.sender, _tokenId);
+    safeTransferFrom(address(this), msg.sender, _tokenId);
   }
 
-  function buy(uint256 _saleId) public {
+  function buy(uint256 _saleId) public payable {
+    Sale storage buy = salesId[_saleId ];
+    require(msg.value >= buy.price );
+
+    buy.seller.transfer(msg.value);
+
+
+    approve(msg.sender , buy.tokenId );
+    safeTransferFrom(address(this), msg.sender, buy.tokenId);
+
     
   }
 
