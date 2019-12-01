@@ -42,7 +42,7 @@ contract Escargots is ERC165, IERC721 {
    *   bytes4(keccak256('safeTransferFrom(address,address,uint256,bytes)'))
    */
   
-  uint256[] ids;
+  uint256[] public ids;
 
   constructor()
     public
@@ -244,7 +244,7 @@ contract Escargots is ERC165, IERC721 {
    * @param to The address that will own the minted token
    * @param tokenId uint256 ID of the token to be minted by the msg.sender
    */
-  function _mint(address to, uint256 tokenId) internal {
+  function _mint(address to, uint256 tokenId) public {// TO DO change back to internal
     require(to != address(0));
     _addTokenTo(to, tokenId);
     emit Transfer(address(0), to, tokenId);
@@ -328,16 +328,13 @@ contract Escargots is ERC165, IERC721 {
   }
 
   //function to create a new token from two existing tokens  
-  function mint(address owner, uint256 tokenId1, uint256 tokenId2) public {
-  	require(ownerOf(tokenId1) == owner);//you can only use tokens you own
-  	require(ownerOf(tokenId2) == owner);//TO DO owner = msg.sender
+  function mint(uint256 tokenId1, uint256 tokenId2) public {
+  	require(ownerOf(tokenId1) == msg.sender);//you can only use tokens you own
+  	require(ownerOf(tokenId2) == msg.sender);
 
   	uint256 tokenId = ids.length;//create new id for new token
 
-  	_mint(owner, tokenId);//create a new token
-
-    _burn(owner, tokenId1);//burn the two tokens
-    _burn(owner, tokenId2);
+  	_mint(msg.sender, tokenId);//create a new token
   }
 
 
