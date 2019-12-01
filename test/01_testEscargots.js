@@ -33,7 +33,7 @@ contract('Escargots', function (accounts) {
     await escargotsInstance._mint(accounts[0], 0, {from: accounts[0]}); 
     await escargotsInstance._mint(accounts[0], 1, {from: accounts[0]}); 
 
-    await escargotsInstance.mint(accounts[0], 0, 1, {from: accounts[0]});
+    await escargotsInstance.mint(0, 1, {from: accounts[0]});
 
 /*
 

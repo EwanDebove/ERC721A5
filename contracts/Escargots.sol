@@ -329,8 +329,8 @@ contract Escargots is ERC165, IERC721 {
 
   //function to create a new token from two existing tokens  
   function mint(uint256 tokenId1, uint256 tokenId2) public {
-  	require(ownerOf(tokenId1) == msg.sender);//you can only use tokens you own
-  	require(ownerOf(tokenId2) == msg.sender);
+  	//require(ownerOf(tokenId1) == msg.sender);//you can only use tokens you own
+  	//require(ownerOf(tokenId2) == msg.sender);
 
   	uint256 tokenId = ids.length;//create new id for new token
 
