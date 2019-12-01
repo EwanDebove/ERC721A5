@@ -1,10 +1,10 @@
 pragma solidity >=0.4.21 <0.6.0;
 
-import "../node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
-import "../math/SafeMath.sol";
-import "../utils/Address.sol";
-import "../node_modules/@openzeppelin/contracts/introspection/ERC165.sol";
+//import "../node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol";
+//import "../node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+//import "../math/SafeMath.sol";
+//import "../utils/Address.sol";
+//import "../node_modules/@openzeppelin/contracts/introspection/ERC165.sol";
 
 import "./Escargots.sol";  
 
@@ -32,7 +32,7 @@ contract TheSlimeRoad {
 
   Sale[] public salesId;
   //deposit a token to be sold
-  function deposit(uint256 _tokenId, uint256 _price) public {
+  function deposit(uint256 _tokenId, uint256 _price, bool _auction) public {
 
     require(escargotsInstance.ownerOf(_tokenId) == msg.sender);// require that you own the token you want to sell
 
@@ -47,6 +47,13 @@ contract TheSlimeRoad {
             bid: 0,
             bidder: address(0)
         });
+
+    if( _auction == true){
+      s.auction = true;
+      s.bid = _price;
+      s.bidder = msg.sender;
+    }
+
     uint256 saleId = salesId.push(s) - 1;
 
     escargotsToSell[_tokenId] = saleId;
@@ -59,6 +66,7 @@ contract TheSlimeRoad {
     delete salesId[escargotsToSell[_tokenId]];
     delete escargotsToSell[_tokenId];
 
+    escargotsInstance.approve(msg.sender , _tokenId );
     escargotsInstance.safeTransferFrom(address(this), msg.sender, _tokenId);//give back the token to owner
   }
 
@@ -78,7 +86,7 @@ contract TheSlimeRoad {
     salesId.length--;
   }
 
-  function  putAuction(uint256  _tokenId, uint256 _price) public payable{
+/*  function  putAuction(uint256  _tokenId, uint256 _price) public payable{
       
       deposit(_tokenId, _price);
 
@@ -86,10 +94,13 @@ contract TheSlimeRoad {
       salesId[escargotsToSell[_tokenId]].bid  = _price;
       salesId[escargotsToSell[_tokenId]].bidder  = salesId[escargotsToSell[_tokenId]].seller;
 
-  }
+  }*/
 
   function bid(uint256  _saleId) public  payable{
+      require(salesId[_saleId].auction == true);
       require(salesId[_saleId].bid < msg.value);
+
+      salesId[_saleId].bidder.transfer(salesId[_saleId].bid);
 
       salesId[_saleId].bid = msg.value;
       salesId[_saleId].bidder = msg.sender;
@@ -97,7 +108,7 @@ contract TheSlimeRoad {
 
   function cashout(uint256  _saleId)public payable{
     require(salesId[_saleId].seller == msg.sender);
-
+    require(salesId[_saleId].bidder > salesId[_saleId].price);
     msg.sender.transfer(salesId[_saleId].bid);
     escargotsInstance.approve(salesId[_saleId].bidder, salesId[_saleId].tokenId);
     escargotsInstance.safeTransferFrom(address(this), salesId[_saleId].bidder,salesId[_saleId].tokenId);

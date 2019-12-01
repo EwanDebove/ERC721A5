@@ -1,18 +1,26 @@
 const TheSlimeRoad   = artifacts.require('./TheSlimeRoad.sol')
 
-
+const EscargotsArtifact = require('./../build/contracts/Escargots.json');
 
 let tryCatch = require("./exceptions.js").tryCatch;
 
 let errTypes = require("./exceptions.js").errTypes;
 
+
+
 contract('Market ', function (accounts) {
 
     // Setup before each test
     beforeEach('setup contract for each test', async function () {
-        // Deploying contract
-        TheSlimeRoadInstance = await TheSlimeRoad.new({from: accounts[0]})
+        // Deploying contracts
 
+        var Escargots = contract(EscargotsArtifact);
+        Escargots.setProvider(window.web3.currentProvider);
+
+
+        TheSlimeRoadInstance = await TheSlimeRoad.new({from: accounts[0]})
+        escargotsInstance = await Escargots.new({from: accounts[0]})
+        TheSlimeRoadInstance.setEscargotAddress(escargotsInstance)
         //await escargotsInstance._mint(accounts[0], 0, {from: accounts[0]}); 
         //await escargotsInstance._mint(accounts[0], 1, {from: accounts[0]}); 
     
